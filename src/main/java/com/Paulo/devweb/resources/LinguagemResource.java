@@ -20,7 +20,7 @@ public class LinguagemResource {
     @Autowired
     private LinguagemService service;
 
-    @GetMapping
+    @GetMapping // http://localhost:8080/linguagens?usuario=id
     public ResponseEntity<List<LinguagemDTO>> findAll(@RequestParam(value = "usuario", defaultValue = "0") Integer id_usu) {
         List<Linguagem> list = service.findAll(id_usu);
         List<LinguagemDTO> listDTO = list.stream().map(obj -> new LinguagemDTO(obj)).collect(Collectors.toList());
